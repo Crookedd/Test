@@ -13,5 +13,6 @@ public class Main {
 
     public static  int inc(int number) {
         return  number + 1;
+
     }
 }
