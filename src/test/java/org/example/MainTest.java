@@ -42,7 +42,7 @@ class MainTest {
 
     @Test
     public void testReverseString() {
-        // Перенаправляем вывод в поток
+        // Записывает все данные текущего выходного потока в указанный выходной поток.
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
@@ -70,4 +70,15 @@ class MainTest {
         String expected = "Нет вещественных корней\n";
         assertEquals(expected, Main.squareRoots(1, 0, 1));
     }
+
+    @Test
+    public void testSeriesSum() {
+        Main sum = new Main();
+        // Извлекаем число из строки
+        double actualSum = sum.seriesSum();
+        // Проверяем, что сумма положительна и не превышает 1
+        assertTrue(actualSum > 0);
+        assertTrue( actualSum < 1);
+    }
+
 }

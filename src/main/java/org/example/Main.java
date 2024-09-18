@@ -34,7 +34,8 @@ public class Main {
                 break;
             case (4):
                 System.out.println("Задача №4");
-
+                double result = seriesSum();
+                System.out.println(result);
                 break;
             case (5):
                 System.out.println("Задача №5");
@@ -94,4 +95,17 @@ public class Main {
     }
 
     //Задача 4
+    public static double seriesSum() {
+        double sum = 0.0;
+        double term;
+        int number = 2;
+
+        do {
+            term = 1.0 / (number * number + number - 2);
+            sum += term;
+            number++;
+        } while (term >= 0.000001);
+
+        return term;
+    }
 }
