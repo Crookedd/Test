@@ -23,14 +23,17 @@ public class Main {
                 reverseString("make install");
                 break;
             case (3):
+                Scanner scanner3 = new Scanner(System.in);
                 System.out.println("Задача №3");
                 System.out.println("Число А:");
-                double numberA = scanner.nextDouble();
+                double numberA = scanner3.nextDouble();
                 System.out.println("Число B:");
-                double numberB = scanner.nextDouble();
+                double numberB = scanner3.nextDouble();
                 System.out.println("Число C:");
-                double numberC = scanner.nextDouble();
+                double numberC = scanner3.nextDouble();
                 System.out.println(squareRoots(numberA,numberB,numberC));
+
+                scanner3.close();
                 break;
             case (4):
                 System.out.println("Задача №4");
@@ -39,6 +42,21 @@ public class Main {
                 break;
             case (5):
                 System.out.println("Задача №5");
+                Scanner scanner5 = new Scanner(System.in);
+
+                System.out.println("Введите слово:");
+                String str = scanner5.nextLine();
+
+                boolean palindrome = isPalindrome(str);
+
+                if (palindrome) {
+                    System.out.println("Строка является палиндромом");
+                } else {
+                    System.out.println("Строка не является палиндромом");
+                }
+
+                scanner5.close();
+
                 break;
             default:
                 System.out.println("Не правильный ввод");
@@ -107,5 +125,16 @@ public class Main {
         } while (term >= 0.000001);
 
         return term;
+    }
+
+    //Задача 5
+    public static boolean isPalindrome(String text) {
+        //удаляем пробелы и приводим к нижнему регистру
+        String clean = text.replaceAll("\\s+", "").toLowerCase();
+        //очищенная строка хранится тут, потом мы её переворячиваем
+        StringBuilder plain = new StringBuilder(clean);
+        StringBuilder reverse = plain.reverse();
+        //сравниваем очищенную строку и перевернутную5
+        return (reverse.toString()).equals(clean);
     }
 }

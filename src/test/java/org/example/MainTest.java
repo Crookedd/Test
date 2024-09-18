@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.example.Main.isPalindrome;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -81,4 +82,16 @@ class MainTest {
         assertTrue( actualSum < 1);
     }
 
+    @Test
+    public void testIsPalindrome() {
+        // Проверяем палиндромы
+        assertTrue(isPalindrome("А роза упала на лапу Азора"));
+        assertTrue(isPalindrome("Madam"));
+        assertTrue(isPalindrome("Able was I ere I saw Elba"));
+
+        // Проверяем непалиндромы
+        assertFalse(isPalindrome("Hello"));
+        assertFalse(isPalindrome("World"));
+        assertFalse(isPalindrome("Java"));
+    }
 }
