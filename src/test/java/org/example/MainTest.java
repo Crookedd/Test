@@ -46,13 +46,28 @@ class MainTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
-        // Вызываем метод
         Main.reverseString("make install");
 
-        // Получаем вывод
         String output = outputStream.toString().trim(); // Убираем пробелы и символы новой строки
 
-        // Проверяем, что вывод соответствует ожидаемому
         assertEquals("llatsni ekam", output);
+    }
+
+    @Test
+    public void testTwoRealRoots() {
+        String expected = "Вещественные корни существуют:\nКорень 1: 2.0\nКорень 2: 1.0\n";
+        assertEquals(expected, Main.squareRoots(1, -3, 2));
+    }
+
+    @Test
+    public void testOneRealRoot() {
+        String expected = "Вещественный корень существует:\nКорень: 1.5\n";
+        assertEquals(expected, Main.squareRoots(1, -3, 2.25));
+    }
+
+    @Test
+    public void testNoRealRoots() {
+        String expected = "Нет вещественных корней\n";
+        assertEquals(expected, Main.squareRoots(1, 0, 1));
     }
 }

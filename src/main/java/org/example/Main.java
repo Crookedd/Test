@@ -6,16 +6,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Введите число для теста: ");
         int number = scanner.nextInt();
 
 
-        System.out.println("Тестовое задание");
+        /*System.out.println("Тестовое задание");
         System.out.println(inc(number));
+
         System.out.println("Задача №1");
         //printFizzBuzz();
+
         System.out.println("Задача №2");
-        reverseString("make install");
+        reverseString("make install");*/
+
         System.out.println("Задача №3");
+        System.out.println("Число А:");
+        double A = scanner.nextDouble();
+        System.out.println("Число B:");
+        double B = scanner.nextDouble();
+        System.out.println("Число C:");
+        double C = scanner.nextDouble();
+        System.out.println(squareRoots(A,B,C));
+
         System.out.println("Задача №4");
         System.out.println("Задача №5");
     }
@@ -47,5 +59,23 @@ public class Main {
         System.out.println(reversed.toString());
     }
 
-
+    //Задача 3
+    public static String squareRoots(double a,double b, double c) {
+        double discriminant = b * b - 4 * a * c;
+        StringBuilder result = new StringBuilder();
+        if(discriminant > 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            result.append("Вещественные корни существуют:\n");
+            result.append("Корень 1: ").append(root1).append("\n");
+            result.append("Корень 2: ").append(root2).append("\n");
+        } else if(discriminant == 0) {
+            double root = -b / (2 * a);
+            result.append("Вещественный корень существует:\n");
+            result.append("Корень: ").append(root).append("\n");
+        } else {
+            result.append("Нет вещественных корней\n");
+        }
+        return  result.toString();
+    }
 }
