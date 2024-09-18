@@ -5,31 +5,45 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число от 0 до 5(0 задание тестовое, а остальное задачи): ");
+        int input = scanner.nextInt();
 
-        System.out.println("Введите число для теста: ");
-        int number = scanner.nextInt();
+        switch (input) {
+            case (0):
+                System.out.println("Введите число для теста: ");
+                int number = scanner.nextInt();
+                System.out.println(inc(number));
+                break;
+            case (1):
+                System.out.println("Задача №1");
+                printFizzBuzz();
+                break;
+            case (2):
+                System.out.println("Задача №2");
+                reverseString("make install");
+                break;
+            case (3):
+                System.out.println("Задача №3");
+                System.out.println("Число А:");
+                double numberA = scanner.nextDouble();
+                System.out.println("Число B:");
+                double numberB = scanner.nextDouble();
+                System.out.println("Число C:");
+                double numberC = scanner.nextDouble();
+                System.out.println(squareRoots(numberA,numberB,numberC));
+                break;
+            case (4):
+                System.out.println("Задача №4");
 
+                break;
+            case (5):
+                System.out.println("Задача №5");
+                break;
+            default:
+                System.out.println("Не правильный ввод");
 
-        /*System.out.println("Тестовое задание");
-        System.out.println(inc(number));
-
-        System.out.println("Задача №1");
-        //printFizzBuzz();
-
-        System.out.println("Задача №2");
-        reverseString("make install");*/
-
-        System.out.println("Задача №3");
-        System.out.println("Число А:");
-        double A = scanner.nextDouble();
-        System.out.println("Число B:");
-        double B = scanner.nextDouble();
-        System.out.println("Число C:");
-        double C = scanner.nextDouble();
-        System.out.println(squareRoots(A,B,C));
-
-        System.out.println("Задача №4");
-        System.out.println("Задача №5");
+        }
+        scanner.close();
     }
 
     public static  int inc(int number) {
@@ -60,17 +74,17 @@ public class Main {
     }
 
     //Задача 3
-    public static String squareRoots(double a,double b, double c) {
-        double discriminant = b * b - 4 * a * c;
+    public static String squareRoots(double numberA,double numberB, double numberC) {
+        double discriminant = numberB * numberB - 4 * numberA * numberC;
         StringBuilder result = new StringBuilder();
         if(discriminant > 0) {
-            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            double root1 = (-numberB + Math.sqrt(discriminant)) / (2 * numberA);
+            double root2 = (-numberB - Math.sqrt(discriminant)) / (2 * numberA);
             result.append("Вещественные корни существуют:\n");
             result.append("Корень 1: ").append(root1).append("\n");
             result.append("Корень 2: ").append(root2).append("\n");
         } else if(discriminant == 0) {
-            double root = -b / (2 * a);
+            double root = -numberB / (2 * numberA);
             result.append("Вещественный корень существует:\n");
             result.append("Корень: ").append(root).append("\n");
         } else {
@@ -78,4 +92,6 @@ public class Main {
         }
         return  result.toString();
     }
+
+    //Задача 4
 }
